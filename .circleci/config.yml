@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           command: | 
-            curl -H "Content-Type: application/json" --data '{"build": true}' https://registry.hub.docker.com/u/classmethod/docker-schemaspy/trigger/$TOKEN
+            curl -i -H "Content-Type: application/json" --data '{"build": true}' -XPOST https://registry.hub.docker.com/u/classmethod/docker-schemaspy/trigger/$TOKEN/
 workflows:
   version: 2
   all:
