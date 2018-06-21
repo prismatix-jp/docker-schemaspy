@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM classmethod/openjdk-with-git:8-jdk
 
 ENV DRIVER_URL http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar
 ENV APP_URL https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc2/schemaspy-6.0.0-rc2.jar
