@@ -6,10 +6,11 @@ ENV APP_URL https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc2/
 WORKDIR /app
 
 COPY ./schemaspy.sh /app/schemaspy.sh
-RUN apk --no-cache add graphviz font-noto git && \
-    apk --no-cache add --virtual .builddep tzdata wget libressl && \
+RUN apt upadte && apt install graphviz font-noto git && \
+    apt install --no-install-recommends tzdata wget openssl  && \
     wget -O mysql-connector-java.jar ${DRIVER_URL} && \
     wget -O schemaspy.jar ${APP_URL} && \
-    apk del .builddep
+    apt purge tzdata wget openssl && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD /app/schemaspy.sh
