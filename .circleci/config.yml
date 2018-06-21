@@ -35,6 +35,10 @@ workflows:
   all:
     jobs:
       - build 
+      - trigger:
+          filters:
+              branches:
+                only: /^master$/
   scheduled:
     triggers:
       - schedule:
@@ -42,6 +46,5 @@ workflows:
           filters:
             branches:
               only: master
-
     jobs:
       - trigger
